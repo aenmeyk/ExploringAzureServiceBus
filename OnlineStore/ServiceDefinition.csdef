@@ -15,4 +15,12 @@
       <Import moduleName="Diagnostics" />
     </Imports>
   </WebRole>
+  <WorkerRole name="OrderProcessingRole" vmsize="Small">
+    <Imports>
+      <Import moduleName="Diagnostics" />
+    </Imports>
+    <ConfigurationSettings>
+      <Setting name="Microsoft.ServiceBus.ConnectionString" />
+    </ConfigurationSettings>
+  </WorkerRole>
 </ServiceDefinition>

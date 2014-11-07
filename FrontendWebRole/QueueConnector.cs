@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using Microsoft.ServiceBus;
 using Microsoft.ServiceBus.Messaging;
+using Microsoft.WindowsAzure;
 
 namespace FrontendWebRole
 {
@@ -15,7 +16,7 @@ namespace FrontendWebRole
 
         public static NamespaceManager CreateNamespaceManager()
         {
-            var connectionString = ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
+            var connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
             return NamespaceManager.CreateFromConnectionString(connectionString);
         }
 

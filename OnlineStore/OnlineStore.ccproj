@@ -45,12 +45,24 @@
       <RoleName>FrontendWebRole</RoleName>
       <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
     </ProjectReference>
+    <ProjectReference Include="..\OrderProcessingRole\OrderProcessingRole.csproj">
+      <Name>OrderProcessingRole</Name>
+      <Project>{0790be96-6202-4907-94ba-aef6bdc08aca}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>OrderProcessingRole</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FrontendWebRoleContent\" />
+    <Folder Include="OrderProcessingRoleContent\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="FrontendWebRoleContent\diagnostics.wadcfg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="OrderProcessingRoleContent\diagnostics.wadcfg">
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>
