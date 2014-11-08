@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontendWebRole", "Frontend
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderProcessingRole", "OrderProcessingRole\OrderProcessingRole.csproj", "{0790BE96-6202-4907-94BA-AEF6BDC08ACA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CloudServices", "CloudServices", "{C3B2EB92-0A1E-4A75-809D-A6F16FE3D753}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8FC55257-2ED3-4DF1-8C01-F4424DCCCE57} = {C3B2EB92-0A1E-4A75-809D-A6F16FE3D753}
+		{1D4DC6B6-214D-4B96-B8B9-C1F1B2D2081C} = {C3B2EB92-0A1E-4A75-809D-A6F16FE3D753}
+		{0790BE96-6202-4907-94BA-AEF6BDC08ACA} = {C3B2EB92-0A1E-4A75-809D-A6F16FE3D753}
 	EndGlobalSection
 EndGlobal
