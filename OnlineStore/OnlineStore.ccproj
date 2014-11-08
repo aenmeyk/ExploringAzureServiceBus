@@ -37,14 +37,6 @@
     <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FrontendWebRole\FrontendWebRole.csproj">
-      <Name>FrontendWebRole</Name>
-      <Project>{1d4dc6b6-214d-4b96-b8b9-c1f1b2d2081c}</Project>
-      <Private>True</Private>
-      <RoleType>Web</RoleType>
-      <RoleName>FrontendWebRole</RoleName>
-      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
-    </ProjectReference>
     <ProjectReference Include="..\OrderProcessingRole\OrderProcessingRole.csproj">
       <Name>OrderProcessingRole</Name>
       <Project>{0790be96-6202-4907-94ba-aef6bdc08aca}</Project>
