@@ -1,18 +1,18 @@
 ﻿using System;
 using Common;
 
-namespace QueueReceiver
+namespace PubSubReceiverYellow
 {
-    class Receiver
+    class ReceiverYellow
     {
         static void Main(string[] args)
         {
-            Console.Title = "Receiver";
+            Console.Title = "Yellow Receiver";
 
             var busManager = new BusManager();
-            var queueClient = busManager.CreateQueueClient(QueuePaths.QUEUE_DEMO);
+            var subscriptionClient = busManager.CreateSubscriptionClient(TopicPaths.PUB_SUB_DEMO, SubscriptionNames.YELLOW);
 
-            queueClient.OnMessage(message =>
+            subscriptionClient.OnMessage(message =>
             {
                 var order = message.GetBody<Order>();
                 Console.ForegroundColor = order.Color;

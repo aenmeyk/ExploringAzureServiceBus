@@ -11,8 +11,8 @@ namespace QueueOrchestrator
             Console.Title = "Orchestrator";
 
             Console.WriteLine("Creating Queue...");
-            var queueManager = new QueueManager();
-            queueManager.DeleteAndCreateQueue(QueueNames.QUEUE_DEMO);
+            var busManager = new BusManager();
+            busManager.DeleteAndCreateQueue(QueuePaths.QUEUE_DEMO);
 
             Console.WriteLine("Starting Sender...");
             Process.Start("QueueSender.exe");

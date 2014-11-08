@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C5CAD995-180F-4521-9B8B-3C7B647183E6}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{18A3B718-EA30-48E6-A438-ECFEC4A55223}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Common</RootNamespace>
-    <AssemblyName>Common</AssemblyName>
+    <RootNamespace>PubSubOrchestrator</RootNamespace>
+    <AssemblyName>PubSubOrchestrator</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -48,15 +51,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColorGenerator.cs" />
-    <Compile Include="Order.cs" />
-    <Compile Include="BusManager.cs" />
-    <Compile Include="Constants.cs" />
+    <Compile Include="Orchestrator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{C5CAD995-180F-4521-9B8B-3C7B647183E6}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PubSubReceiverCyan\PubSubReceiverCyan.csproj">
+      <Project>{fe744d96-61cc-42e2-b600-fa5b815dbe1a}</Project>
+      <Name>PubSubReceiverCyan</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PubSubReceiverYellow\PubSubReceiverYellow.csproj">
+      <Project>{df737560-f8ec-41fa-913c-b0039539368f}</Project>
+      <Name>PubSubReceiverYellow</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PubSubSender\PubSubSender.csproj">
+      <Project>{a1c073f1-9554-4f53-be74-229163aa49cc}</Project>
+      <Name>PubSubSender</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,16 +3,16 @@ using System.Threading;
 using Common;
 using Microsoft.ServiceBus.Messaging;
 
-namespace QueueSender
+namespace PubSubSender
 {
     class Sender
     {
         static void Main(string[] args)
         {
             Console.Title = "Sender";
-            
+
             var busManager = new BusManager();
-            var queueClient = busManager.CreateQueueClient(QueuePaths.QUEUE_DEMO);
+            var topicClient = busManager.CreateTopicClient(TopicPaths.PUB_SUB_DEMO);
             var id = 0;
 
             do
@@ -29,7 +29,8 @@ namespace QueueSender
                     };
 
                     var message = new BrokeredMessage(order);
-                    queueClient.Send(message);
+                    message.Properties["Color"] = Console.ForegroundColor.ToString();
+                    topicClient.Send(message);
 
                     Console.WriteLine(order.ToString());
                     id++;
