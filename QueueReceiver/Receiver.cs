@@ -3,13 +3,14 @@ using Common;
 
 namespace QueueReceiver
 {
-    class Program
+    class Receiver
     {
         static void Main(string[] args)
         {
             Console.Title = "Receiver";
+            Console.SetWindowSize(80, 25);
+
             var queueManager = new QueueManager();
-            queueManager.CreateQueue(QueueNames.QUEUE_DEMO);
             var queueClient = queueManager.CreateQueueClient(QueueNames.QUEUE_DEMO);
 
             queueClient.OnMessage(message =>

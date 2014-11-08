@@ -5,13 +5,14 @@ using Microsoft.ServiceBus.Messaging;
 
 namespace QueueSender
 {
-    class Program
+    class Sender
     {
         static void Main(string[] args)
         {
             Console.Title = "Sender";
+            Console.SetWindowSize(80, 25);
+            
             var queueManager = new QueueManager();
-            queueManager.DeleteAndCreateQueue(QueueNames.QUEUE_DEMO);
             var queueClient = queueManager.CreateQueueClient(QueueNames.QUEUE_DEMO);
             var id = 0;
 
