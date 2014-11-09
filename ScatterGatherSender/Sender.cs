@@ -3,7 +3,7 @@ using System.Threading;
 using Common;
 using Microsoft.ServiceBus.Messaging;
 
-namespace QueueSender
+namespace ScatterGatherSender
 {
     class Sender
     {
@@ -12,7 +12,7 @@ namespace QueueSender
             Console.Title = "Sender";
 
             var busManager = new BusManager();
-            var queueClient = busManager.CreateQueueClient(QueuePaths.QUEUE_DEMO);
+            var topicClient = busManager.CreateTopicClient(TopicPaths.SCATTER_GATHER_DEMO);
             var id = 0;
 
             while (true)
@@ -23,23 +23,22 @@ namespace QueueSender
                     {
                         Console.ForegroundColor = ColorGenerator.GetRandomColor();
 
-                        var order = new Order
+                        var quoteRequest = new QuoteRequest
                         {
-                            Id = id,
-                            Name = "Order Number " + id,
-                            Color = Console.ForegroundColor
+                            QuoteId = id,
+                            Product = Console.ForegroundColor
                         };
 
-                        var message = new BrokeredMessage(order);
-                        queueClient.Send(message);
+                        var message = new BrokeredMessage(quoteRequest);
+                        topicClient.Send(message);
 
-                        Console.WriteLine(order.ToString());
+                        Console.WriteLine(quoteRequest.ToString());
                         id++;
 
                         Thread.Sleep(300);
                     }
                 } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
-
+             
                 Console.ReadKey();
             }
         }

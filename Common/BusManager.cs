@@ -42,13 +42,20 @@ namespace Common
 
         public void DeleteAndCreateQueue(string queuePath)
         {
-            // Delete the queue if exists
-            if (NamespaceManager.QueueExists(queuePath))
-            {
-                NamespaceManager.DeleteQueue(queuePath);
-            }
-
+            DeleteQueueIfExists(queuePath);
             NamespaceManager.CreateQueue(queuePath);
+        }
+
+        public void DeleteAndCreateSessionQueue(string queuePath)
+        {
+            DeleteQueueIfExists(queuePath);
+
+            var queueDescription = new QueueDescription(queuePath)
+            {
+                RequiresSession = true
+            };
+
+            NamespaceManager.CreateQueue(queueDescription);
         }
 
         public void DeleteAndCreateTopic(string topicPath)
@@ -62,20 +69,21 @@ namespace Common
             NamespaceManager.CreateTopic(topicPath);
         }
 
+        public void DeleteAndCreateSubscription(string topicPath, string subscriptionName)
+        {
+            DeleteSubscriptionIfExists(topicPath, subscriptionName);
+            NamespaceManager.CreateSubscription(topicPath, subscriptionName);
+        }
+
         public void DeleteAndCreateSubscription(string topicPath, string subscriptionName, Filter filter)
         {
-            // Delete the subscription if exists
-            if (NamespaceManager.SubscriptionExists(topicPath, subscriptionName))
-            {
-                NamespaceManager.DeleteSubscription(topicPath, subscriptionName);
-            }
-
+            DeleteSubscriptionIfExists(topicPath, subscriptionName);
             NamespaceManager.CreateSubscription(topicPath, subscriptionName, filter);
         }
 
         public QueueClient CreateQueueClient(string queuePath)
         {
-            return MessagingFactory.CreateQueueClient(queuePath);
+            return MessagingFactory.CreateQueueClient(queuePath, ReceiveMode.ReceiveAndDelete);
         }
 
         public TopicClient CreateTopicClient(string topicPath)
@@ -85,7 +93,25 @@ namespace Common
 
         public SubscriptionClient CreateSubscriptionClient(string topicPath, string subscriptionName)
         {
-            return MessagingFactory.CreateSubscriptionClient(topicPath, subscriptionName);
+            return MessagingFactory.CreateSubscriptionClient(topicPath, subscriptionName, ReceiveMode.ReceiveAndDelete);
+        }
+
+        private void DeleteSubscriptionIfExists(string topicPath, string subscriptionName)
+        {
+            // Delete the subscription if exists
+            if (NamespaceManager.SubscriptionExists(topicPath, subscriptionName))
+            {
+                NamespaceManager.DeleteSubscription(topicPath, subscriptionName);
+            }
+        }
+
+        private void DeleteQueueIfExists(string queuePath)
+        {
+            // Delete the queue if exists
+            if (NamespaceManager.QueueExists(queuePath))
+            {
+                NamespaceManager.DeleteQueue(queuePath);
+            }
         }
     }
 }

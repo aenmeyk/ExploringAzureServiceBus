@@ -10,9 +10,9 @@ namespace PubSubOrchestrator
         static void Main(string[] args)
         {
             Console.Title = "Orchestrator";
+            var busManager = new BusManager();
 
             Console.WriteLine("Creating Topic...");
-            var busManager = new BusManager();
             busManager.DeleteAndCreateTopic(TopicPaths.PUB_SUB_DEMO);
 
             Console.WriteLine("Creating Cyan Subscription...");

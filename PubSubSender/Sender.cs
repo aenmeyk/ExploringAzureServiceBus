@@ -15,31 +15,34 @@ namespace PubSubSender
             var topicClient = busManager.CreateTopicClient(TopicPaths.PUB_SUB_DEMO);
             var id = 0;
 
-            do
+            while (true)
             {
-                while (!Console.KeyAvailable)
+                do
                 {
-                    Console.ForegroundColor = ColorGenerator.GetRandomColor();
-
-                    var order = new Order
+                    while (!Console.KeyAvailable)
                     {
-                        Id = id,
-                        Name = "Order Number " + id,
-                        Color = Console.ForegroundColor
-                    };
+                        Console.ForegroundColor = ColorGenerator.GetRandomColor();
 
-                    var message = new BrokeredMessage(order);
-                    message.Properties["Color"] = Console.ForegroundColor.ToString();
-                    topicClient.Send(message);
+                        var order = new Order
+                        {
+                            Id = id,
+                            Name = "Order Number " + id,
+                            Color = Console.ForegroundColor
+                        };
 
-                    Console.WriteLine(order.ToString());
-                    id++;
+                        var message = new BrokeredMessage(order);
+                        message.Properties["Color"] = Console.ForegroundColor.ToString();
+                        topicClient.Send(message);
 
-                    Thread.Sleep(300);
-                }
-            } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
+                        Console.WriteLine(order.ToString());
+                        id++;
 
-            Console.ReadLine();
+                        Thread.Sleep(300);
+                    }
+                } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
+
+                Console.ReadKey();
+            }
         }
     }
 }

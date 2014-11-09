@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C5CAD995-180F-4521-9B8B-3C7B647183E6}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{3CB8E20F-9362-45CF-8A0F-6E6386C29CD6}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Common</RootNamespace>
-    <AssemblyName>Common</AssemblyName>
+    <RootNamespace>ScatterGatherOrchestrator</RootNamespace>
+    <AssemblyName>ScatterGatherOrchestrator</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -48,17 +51,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColorGenerator.cs" />
-    <Compile Include="Order.cs" />
-    <Compile Include="BusManager.cs" />
-    <Compile Include="Constants.cs" />
+    <Compile Include="Orchestrator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuoteRequest.cs" />
-    <Compile Include="QuoteResponse.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{C5CAD995-180F-4521-9B8B-3C7B647183E6}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ScatterGatherAggregator\ScatterGatherAggregator.csproj">
+      <Project>{74f19e3d-c6f0-4d70-b259-712e249525c6}</Project>
+      <Name>ScatterGatherAggregator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ScatterGatherSender\ScatterGatherSender.csproj">
+      <Project>{986e7e2e-9236-40ad-a928-32633b17a815}</Project>
+      <Name>ScatterGatherSender</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ScatterGatherVendorA\ScatterGatherVendorA.csproj">
+      <Project>{b76c7fb0-772a-421c-b876-9e1f1e0b6ac4}</Project>
+      <Name>ScatterGatherVendorA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ScatterGatherVendorB\ScatterGatherVendorB.csproj">
+      <Project>{c4fab6b9-24c4-438c-9eb0-a283272953f2}</Project>
+      <Name>ScatterGatherVendorB</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

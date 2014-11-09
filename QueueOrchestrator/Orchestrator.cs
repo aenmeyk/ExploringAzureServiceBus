@@ -9,9 +9,9 @@ namespace QueueOrchestrator
         static void Main(string[] args)
         {
             Console.Title = "Orchestrator";
+            var busManager = new BusManager();
 
             Console.WriteLine("Creating Queue...");
-            var busManager = new BusManager();
             busManager.DeleteAndCreateQueue(QueuePaths.QUEUE_DEMO);
 
             Console.WriteLine("Starting Sender...");
