@@ -81,9 +81,9 @@ namespace Common
             NamespaceManager.CreateSubscription(topicPath, subscriptionName, filter);
         }
 
-        public QueueClient CreateQueueClient(string queuePath)
+        public QueueClient CreateQueueClient(string queuePath, ReceiveMode receiveMode = ReceiveMode.ReceiveAndDelete)
         {
-            return MessagingFactory.CreateQueueClient(queuePath, ReceiveMode.ReceiveAndDelete);
+            return MessagingFactory.CreateQueueClient(queuePath, receiveMode);
         }
 
         public TopicClient CreateTopicClient(string topicPath)

@@ -4,6 +4,7 @@
     {
         public const string QUEUE_DEMO = "queue-demo";
         public const string SCATTER_GATHER_AGGREGATOR_DEMO = "scatter-gather-aggregator-demo";
+        public const string DEAD_LETTERING_DEMO = "dead-lettering-demo";
     }
 
     public static class TopicPaths
