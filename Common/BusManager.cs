@@ -10,8 +10,7 @@ namespace Common
 
         public BusManager()
         {
-            // Using Http to be friendly with outbound firewalls
-            ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.Http;
+            ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.Tcp;
         }
 
         public NamespaceManager NamespaceManager
@@ -21,7 +20,7 @@ namespace Common
                 if (_namespaceManager == null)
                 {
                     // Create the namespace manager which gives you access to management operations
-                    _namespaceManager = NamespaceManager.CreateFromConnectionString(Settings.CONNECTION_STRING);
+                    _namespaceManager = NamespaceManager.CreateFromConnectionString(Settings.CONNECTION_STRING_AMQP);
                 }
 
                 return _namespaceManager;
