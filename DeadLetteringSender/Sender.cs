@@ -7,7 +7,7 @@ namespace DeadLetteringSender
 {
     class Sender
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.Title = "Sender";
 

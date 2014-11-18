@@ -6,7 +6,7 @@ namespace ScatterGatherVendorB
 {
     class VendorB
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.Title = "Vendor B";
 

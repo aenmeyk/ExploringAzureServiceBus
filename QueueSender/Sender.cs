@@ -7,7 +7,7 @@ namespace QueueSender
 {
     class Sender
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.Title = "Sender";
 
@@ -30,6 +30,7 @@ namespace QueueSender
                             Color = Console.ForegroundColor
                         };
 
+                        // BrokeredMessage represents the unit of communication between Azure Service Bus clients
                         var message = new BrokeredMessage(order);
                         queueClient.Send(message);
 

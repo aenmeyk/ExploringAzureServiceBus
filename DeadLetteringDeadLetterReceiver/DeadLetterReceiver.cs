@@ -5,7 +5,7 @@ namespace DeadLetteringDeadLetterReceiver
 {
     class DeadLetterReceiver
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.Title = "Dead Letter Receiver";
             Console.ForegroundColor = ConsoleColor.Red;

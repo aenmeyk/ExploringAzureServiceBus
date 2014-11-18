@@ -6,7 +6,7 @@ namespace DeadLetteringReceiver
 {
     class Receiver
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.Title = "Receiver";
 

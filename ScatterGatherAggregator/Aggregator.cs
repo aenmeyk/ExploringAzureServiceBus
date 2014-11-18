@@ -8,7 +8,7 @@ namespace ScatterGatherAggregator
 {
     class Aggregator
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.Title = "Aggregator";
 

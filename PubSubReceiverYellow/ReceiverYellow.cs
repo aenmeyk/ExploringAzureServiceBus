@@ -5,7 +5,7 @@ namespace PubSubReceiverYellow
 {
     class ReceiverYellow
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.Title = "Yellow Receiver";
 

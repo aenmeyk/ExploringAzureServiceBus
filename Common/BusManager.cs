@@ -33,6 +33,7 @@ namespace Common
             {
                 if (_messagingFactory == null)
                 {
+                    // This is the anchor class used for run-time operations that send and receive messages to and from queues, topics, or subscriptions.
                     _messagingFactory = MessagingFactory.Create(NamespaceManager.Address, NamespaceManager.Settings.TokenProvider);
                 }
 

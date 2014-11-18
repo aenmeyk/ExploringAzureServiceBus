@@ -6,7 +6,7 @@ namespace DeadLetteringOrchestrator
 {
     class Orchestrator
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.Title = "Orchestrator";
             var busManager = new BusManager();
