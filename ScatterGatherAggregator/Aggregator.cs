@@ -22,7 +22,7 @@ namespace ScatterGatherAggregator
                     while (!Console.KeyAvailable)
                     {
                         var quoteResponses = new Collection<QuoteResponse>();
-                        var messageSession = queueClient.AcceptMessageSession();
+                        var messageSession = queueClient.AcceptMessageSession(TimeSpan.FromDays(365));
                         BrokeredMessage message;
 
                         while (quoteResponses.Count < 2 && (message = messageSession.Receive()) != null)
