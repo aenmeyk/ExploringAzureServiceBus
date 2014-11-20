@@ -8,11 +8,14 @@ namespace PubSubOrchestrator
     {
         static void Main()
         {
-            Console.Title = "Orchestrator";
+            Console.Title = "Infrastructure";
 
             var busManager = new BusManager();
             busManager.DeleteAndCreateTopic(TopicPaths.PUB_SUB_DEMO);
             Console.WriteLine("Topic created: {0}", TopicPaths.PUB_SUB_DEMO);
+
+            busManager.DeleteAndCreateSubscription(TopicPaths.PUB_SUB_DEMO, SubscriptionNames.ALL);
+            Console.WriteLine("Subscription created: {0}", SubscriptionNames.ALL);
 
             var cyanSqlFilter = CreateColorFilter(ConsoleColor.Cyan);
             busManager.DeleteAndCreateSubscription(TopicPaths.PUB_SUB_DEMO, SubscriptionNames.CYAN, cyanSqlFilter);

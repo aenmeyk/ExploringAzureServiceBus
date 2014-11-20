@@ -15,6 +15,7 @@
 
     public static class SubscriptionNames
     {
+        public const string ALL = "all";
         public const string CYAN = "cyan";
         public const string YELLOW = "yellow";
         public const string VENDOR_A = "vendor-a";

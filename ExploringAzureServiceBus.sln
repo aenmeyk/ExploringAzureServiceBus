@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadLetteringReceiver", "De
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadLetteringDeadLetterReceiver", "DeadLetteringDeadLetterReceiver\DeadLetteringDeadLetterReceiver.csproj", "{B2F6EB8C-9F93-4047-B5E9-18A3FFD80206}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSubReceiverAll", "PubSubReceiverAll\PubSubReceiverAll.csproj", "{921B174C-61AD-40D3-878D-EE7ECA5F5164}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -119,6 +121,10 @@ Global
 		{B2F6EB8C-9F93-4047-B5E9-18A3FFD80206}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2F6EB8C-9F93-4047-B5E9-18A3FFD80206}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2F6EB8C-9F93-4047-B5E9-18A3FFD80206}.Release|Any CPU.Build.0 = Release|Any CPU
+		{921B174C-61AD-40D3-878D-EE7ECA5F5164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{921B174C-61AD-40D3-878D-EE7ECA5F5164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{921B174C-61AD-40D3-878D-EE7ECA5F5164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{921B174C-61AD-40D3-878D-EE7ECA5F5164}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -140,5 +146,6 @@ Global
 		{14BFC7E4-80BC-40C7-A148-31FAB91777D0} = {935C77C3-DC30-44EE-9AAF-2AD91743AABA}
 		{307AF91F-A447-4CD7-8BA2-2745897DD642} = {935C77C3-DC30-44EE-9AAF-2AD91743AABA}
 		{B2F6EB8C-9F93-4047-B5E9-18A3FFD80206} = {935C77C3-DC30-44EE-9AAF-2AD91743AABA}
+		{921B174C-61AD-40D3-878D-EE7ECA5F5164} = {04104102-B658-4F74-9AE2-EE13D02A5D47}
 	EndGlobalSection
 EndGlobal
