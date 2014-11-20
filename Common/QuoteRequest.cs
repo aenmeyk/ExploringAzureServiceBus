@@ -9,7 +9,7 @@ namespace Common
 
         public override string ToString()
         {
-            return string.Format("QuoteId: {0}, Product {1}", QuoteId, Product);
+            return string.Format("QuoteId: {0}, Product: {1}", QuoteId, Product);
         }
     }
 }
