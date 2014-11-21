@@ -4,14 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3CB8E20F-9362-45CF-8A0F-6E6386C29CD6}</ProjectGuid>
+    <ProjectGuid>{18A3B718-EA30-48E6-A438-ECFEC4A55223}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ScatterGatherOrchestrator</RootNamespace>
-    <AssemblyName>ScatterGatherOrchestrator</AssemblyName>
+    <RootNamespace>PubSubOrchestrator</RootNamespace>
+    <AssemblyName>PubSubOrchestrator</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,7 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Orchestrator.cs" />
+    <Compile Include="Infrastructure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,24 +65,27 @@
       <Project>{C5CAD995-180F-4521-9B8B-3C7B647183E6}</Project>
       <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ScatterGatherAggregator\ScatterGatherAggregator.csproj">
-      <Project>{74f19e3d-c6f0-4d70-b259-712e249525c6}</Project>
-      <Name>ScatterGatherAggregator</Name>
+    <ProjectReference Include="..\PubSubReceiverCyan\PubSubReceiverCyan.csproj">
+      <Project>{fe744d96-61cc-42e2-b600-fa5b815dbe1a}</Project>
+      <Name>PubSubReceiverCyan</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ScatterGatherSender\ScatterGatherSender.csproj">
-      <Project>{986e7e2e-9236-40ad-a928-32633b17a815}</Project>
-      <Name>ScatterGatherSender</Name>
+    <ProjectReference Include="..\PubSubReceiverYellow\PubSubReceiverYellow.csproj">
+      <Project>{df737560-f8ec-41fa-913c-b0039539368f}</Project>
+      <Name>PubSubReceiverYellow</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ScatterGatherVendorA\ScatterGatherVendorA.csproj">
-      <Project>{b76c7fb0-772a-421c-b876-9e1f1e0b6ac4}</Project>
-      <Name>ScatterGatherVendorA</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ScatterGatherVendorB\ScatterGatherVendorB.csproj">
-      <Project>{c4fab6b9-24c4-438c-9eb0-a283272953f2}</Project>
-      <Name>ScatterGatherVendorB</Name>
+    <ProjectReference Include="..\PubSubSender\PubSubSender.csproj">
+      <Project>{a1c073f1-9554-4f53-be74-229163aa49cc}</Project>
+      <Name>PubSubSender</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01Queue", "01Queue", "{958EEF89-CF31-4A27-BDC2-2746CD60BAA6}"
 EndProject
@@ -11,11 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueSender", "QueueSender\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueReceiver", "QueueReceiver\QueueReceiver.csproj", "{6BBDE99C-0AE0-4B0B-B89C-B6193E432582}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueOrchestrator", "QueueOrchestrator\QueueOrchestrator.csproj", "{410B4FF8-5CE1-4998-A224-89DA89DFFC24}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueInfrastructure", "QueueOrchestrator\QueueInfrastructure.csproj", "{410B4FF8-5CE1-4998-A224-89DA89DFFC24}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02PubSub", "02PubSub", "{04104102-B658-4F74-9AE2-EE13D02A5D47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSubOrchestrator", "PubSubOrchestrator\PubSubOrchestrator.csproj", "{18A3B718-EA30-48E6-A438-ECFEC4A55223}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSubInfrastructure", "PubSubOrchestrator\PubSubInfrastructure.csproj", "{18A3B718-EA30-48E6-A438-ECFEC4A55223}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSubSender", "PubSubSender\PubSubSender.csproj", "{A1C073F1-9554-4F53-BE74-229163AA49CC}"
 EndProject
@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSubReceiverYellow", "Pub
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03ScatterGather", "03ScatterGather", "{752EF9A8-2E63-418F-929F-78F2DD1A32B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScatterGatherOrchestrator", "ScatterGatherOrchestrator\ScatterGatherOrchestrator.csproj", "{3CB8E20F-9362-45CF-8A0F-6E6386C29CD6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScatterGatherInfrastructure", "ScatterGatherOrchestrator\ScatterGatherInfrastructure.csproj", "{3CB8E20F-9362-45CF-8A0F-6E6386C29CD6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScatterGatherSender", "ScatterGatherSender\ScatterGatherSender.csproj", "{986E7E2E-9236-40AD-A928-32633B17A815}"
 EndProject
@@ -37,13 +37,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScatterGatherAggregator", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04DeadLettering", "04DeadLettering", "{935C77C3-DC30-44EE-9AAF-2AD91743AABA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadLetteringOrchestrator", "DeadLetteringOrchestrator\DeadLetteringOrchestrator.csproj", "{76155883-E384-406F-91F1-4EEB7352A928}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadLetteringInfrastructure", "DeadLetteringOrchestrator\DeadLetteringInfrastructure.csproj", "{76155883-E384-406F-91F1-4EEB7352A928}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadLetteringSender", "DeadLetteringSender\DeadLetteringSender.csproj", "{14BFC7E4-80BC-40C7-A148-31FAB91777D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadLetteringReceiver", "DeadLetteringReceiver\DeadLetteringReceiver.csproj", "{307AF91F-A447-4CD7-8BA2-2745897DD642}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadLetteringDeadLetterReceiver", "DeadLetteringDeadLetterReceiver\DeadLetteringDeadLetterReceiver.csproj", "{B2F6EB8C-9F93-4047-B5E9-18A3FFD80206}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSubReceiverAll", "PubSubReceiverAll\PubSubReceiverAll.csproj", "{921B174C-61AD-40D3-878D-EE7ECA5F5164}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -119,6 +121,10 @@ Global
 		{B2F6EB8C-9F93-4047-B5E9-18A3FFD80206}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2F6EB8C-9F93-4047-B5E9-18A3FFD80206}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2F6EB8C-9F93-4047-B5E9-18A3FFD80206}.Release|Any CPU.Build.0 = Release|Any CPU
+		{921B174C-61AD-40D3-878D-EE7ECA5F5164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{921B174C-61AD-40D3-878D-EE7ECA5F5164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{921B174C-61AD-40D3-878D-EE7ECA5F5164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{921B174C-61AD-40D3-878D-EE7ECA5F5164}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -140,5 +146,6 @@ Global
 		{14BFC7E4-80BC-40C7-A148-31FAB91777D0} = {935C77C3-DC30-44EE-9AAF-2AD91743AABA}
 		{307AF91F-A447-4CD7-8BA2-2745897DD642} = {935C77C3-DC30-44EE-9AAF-2AD91743AABA}
 		{B2F6EB8C-9F93-4047-B5E9-18A3FFD80206} = {935C77C3-DC30-44EE-9AAF-2AD91743AABA}
+		{921B174C-61AD-40D3-878D-EE7ECA5F5164} = {04104102-B658-4F74-9AE2-EE13D02A5D47}
 	EndGlobalSection
 EndGlobal
