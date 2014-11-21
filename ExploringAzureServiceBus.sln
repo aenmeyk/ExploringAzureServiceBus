@@ -47,6 +47,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadLetteringDeadLetterRece
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSubReceiverAll", "PubSubReceiverAll\PubSubReceiverAll.csproj", "{921B174C-61AD-40D3-878D-EE7ECA5F5164}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{AF10BBCB-7D91-48F6-A46B-ED3D3F462990}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
