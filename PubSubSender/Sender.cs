@@ -31,7 +31,8 @@ namespace PubSubSender
                         };
 
                         var message = new BrokeredMessage(order);
-                        message.Properties["Color"] = Console.ForegroundColor.ToString();
+                        message.CorrelationId = Console.ForegroundColor.ToString();
+
                         topicClient.Send(message);
 
                         Console.WriteLine(order.ToString());

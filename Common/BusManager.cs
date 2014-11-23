@@ -7,6 +7,7 @@ namespace Common
     {
         #region Microsoft.ServiceBus
 
+        // Gives you access to Service Bus management operations
         private NamespaceManager _namespaceManager;
         public NamespaceManager NamespaceManager
         {
@@ -14,7 +15,6 @@ namespace Common
             {
                 if (_namespaceManager == null)
                 {
-                    // Create the namespace manager which gives you access to management operations
                     _namespaceManager = NamespaceManager.CreateFromConnectionString(Settings.CONNECTION_STRING_AMQP);
                 }
 
@@ -22,6 +22,7 @@ namespace Common
             }
         }
 
+        // This is the anchor class used for run-time operations that send and receive messages to and from queues, topics, or subscriptions.
         private MessagingFactory _messagingFactory;
         public MessagingFactory MessagingFactory
         {
@@ -29,7 +30,6 @@ namespace Common
             {
                 if (_messagingFactory == null)
                 {
-                    // This is the anchor class used for run-time operations that send and receive messages to and from queues, topics, or subscriptions.
                     _messagingFactory = MessagingFactory.Create(NamespaceManager.Address, NamespaceManager.Settings.TokenProvider);
                 }
 

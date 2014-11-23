@@ -17,23 +17,15 @@ namespace PubSubOrchestrator
             busManager.DeleteAndCreateSubscription(TopicPaths.PUB_SUB_DEMO, SubscriptionNames.ALL);
             Console.WriteLine("Subscription created: {0}", SubscriptionNames.ALL);
 
-            var cyanSqlFilter = CreateColorFilter(ConsoleColor.Cyan);
-            busManager.DeleteAndCreateSubscription(TopicPaths.PUB_SUB_DEMO, SubscriptionNames.CYAN, cyanSqlFilter);
+            var cyanFilter = new CorrelationFilter(ConsoleColor.Cyan.ToString());
+            busManager.DeleteAndCreateSubscription(TopicPaths.PUB_SUB_DEMO, SubscriptionNames.CYAN, cyanFilter);
             Console.WriteLine("Subscription created: {0}", SubscriptionNames.CYAN);
 
-            var yellowSqlFilter = CreateColorFilter(ConsoleColor.Yellow);
-            busManager.DeleteAndCreateSubscription(TopicPaths.PUB_SUB_DEMO, SubscriptionNames.YELLOW, yellowSqlFilter);
+            var yellowFilter = new CorrelationFilter(ConsoleColor.Yellow.ToString());
+            busManager.DeleteAndCreateSubscription(TopicPaths.PUB_SUB_DEMO, SubscriptionNames.YELLOW, yellowFilter);
             Console.WriteLine("Subscription created: {0}", SubscriptionNames.YELLOW);
             
             Console.ReadKey();
-        }
-
-        private static SqlFilter CreateColorFilter(ConsoleColor consoleColor)
-        {
-            var sqlExpression = string.Format(@"Color = '{0}'", consoleColor);
-            var sqlFilter = new SqlFilter(sqlExpression);
-
-            return sqlFilter;
         }
     }
 }
