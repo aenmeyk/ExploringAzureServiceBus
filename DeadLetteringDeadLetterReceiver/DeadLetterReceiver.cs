@@ -16,6 +16,7 @@ namespace DeadLetteringDeadLetterReceiver
             deadLetterQueueClient.OnMessage(message =>
             {
                 var order = message.GetBody<Order>();
+                Console.ForegroundColor = order.Color;
                 Console.WriteLine(order.ToString());
             });
 

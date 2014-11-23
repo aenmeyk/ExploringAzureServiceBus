@@ -5,14 +5,9 @@ namespace Common
 {
     public class BusManager
     {
+        #region Microsoft.ServiceBus
+
         private NamespaceManager _namespaceManager;
-        private MessagingFactory _messagingFactory;
-
-        public BusManager()
-        {
-            ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.Tcp;
-        }
-
         public NamespaceManager NamespaceManager
         {
             get
@@ -27,6 +22,7 @@ namespace Common
             }
         }
 
+        private MessagingFactory _messagingFactory;
         public MessagingFactory MessagingFactory
         {
             get
@@ -40,6 +36,10 @@ namespace Common
                 return _messagingFactory;
             }
         }
+
+        #endregion
+
+        #region Queues
 
         public void DeleteAndCreateQueue(string queuePath)
         {
@@ -58,6 +58,24 @@ namespace Common
 
             NamespaceManager.CreateQueue(queueDescription);
         }
+
+        public QueueClient CreateQueueClient(string queuePath, ReceiveMode receiveMode = ReceiveMode.ReceiveAndDelete)
+        {
+            return MessagingFactory.CreateQueueClient(queuePath, receiveMode);
+        }
+
+        private void DeleteQueueIfExists(string queuePath)
+        {
+            // Delete the queue if exists
+            if (NamespaceManager.QueueExists(queuePath))
+            {
+                NamespaceManager.DeleteQueue(queuePath);
+            }
+        }
+
+        #endregion
+
+        #region Topics
 
         public void DeleteAndCreateTopic(string topicPath)
         {
@@ -82,11 +100,6 @@ namespace Common
             NamespaceManager.CreateSubscription(topicPath, subscriptionName, filter);
         }
 
-        public QueueClient CreateQueueClient(string queuePath, ReceiveMode receiveMode = ReceiveMode.ReceiveAndDelete)
-        {
-            return MessagingFactory.CreateQueueClient(queuePath, receiveMode);
-        }
-
         public TopicClient CreateTopicClient(string topicPath)
         {
             return MessagingFactory.CreateTopicClient(topicPath);
@@ -106,13 +119,6 @@ namespace Common
             }
         }
 
-        private void DeleteQueueIfExists(string queuePath)
-        {
-            // Delete the queue if exists
-            if (NamespaceManager.QueueExists(queuePath))
-            {
-                NamespaceManager.DeleteQueue(queuePath);
-            }
-        }
+        #endregion
     }
 }

@@ -36,7 +36,7 @@ namespace DeadLetteringSender
                         Console.WriteLine(order.ToString());
                         id++;
 
-                        Thread.Sleep(50);
+                        Thread.Sleep(300);
                     }
                 } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
 
